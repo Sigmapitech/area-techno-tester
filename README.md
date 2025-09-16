@@ -34,18 +34,20 @@ Evaluate, prototype, and benchmark multiple frameworks and languages to identify
 ## Structure
 
 ```
-tech-tester-arena/
-├── front/
-│   ├── angular/
-│   ├── html-css-js/
-│   ├── vue/
-│   └── react/
-└── back/
-    ├── jinja/
-    ├── php/
-    ├── fastapi/
-    ├── express/
-    └── flask/
+tech-tester-arena
+├── poc
+│   ├── front-react
+│   ├── back-fastapi
+│   └── db-orm-slqalchemy
+└─── considerations
+    ├── front-angular
+    ├── front-html-css-js
+    ├── front-vue
+    ├── front-jinja
+    ├── back-php
+    ├── back-fastapi
+    ├── back-express
+    └── back-flask
 ```
 
 ## POC / Con testing policy
