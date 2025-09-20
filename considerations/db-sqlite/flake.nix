@@ -10,6 +10,7 @@
       packages = with pkgs; [
         graphviz
         pyenv
+        feh
         sqlite
       ];
     };

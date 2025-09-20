@@ -1,12 +1,32 @@
 import logging
-import os
 import pathlib
+import graphviz
+
 from mapper import SQLMapper
 
 
 SCHEMA = pathlib.Path("schema.sql").read_text()
 DB_FILE = 'example.db'
 QUERIES_FOLDER = 'queries'
+
+
+def create_graph_overview(db):
+    db.execute('get_workflow_nodes_by_name', ('Tests',))
+    nodes = db.cursor.fetchall()
+    print(nodes)
+
+    dot = graphviz.Digraph(name='Tests', format='png')
+    dot.attr(rankdir='LR')
+
+    for node_id, node_type, content, parent_id in nodes:
+        label = f"{node_type}: {content}"
+        dot.node(str(node_id), label)
+
+    for node_id, node_type, content, parent_id in nodes:
+        if parent_id is not None:
+            dot.edge(str(parent_id), str(node_id))
+
+    dot.render(f"workflow.gv", view=True)
 
 
 def main():
@@ -40,9 +60,9 @@ def main():
     db.execute('insert_workflow_node', (workflow_id, 'send', 'qux', child1_id))
     db.commit()
 
+    create_graph_overview(db)
     db.close()
 
 
 if __name__ == '__main__':
-    os.remove("example.db")
     main()
