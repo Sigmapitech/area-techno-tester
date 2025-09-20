@@ -1,5 +1,11 @@
-.game {
+.home-page {
   padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.game {
   display: flex;
   gap: 2em;
 
