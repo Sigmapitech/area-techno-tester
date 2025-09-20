@@ -9,8 +9,8 @@ Express.js is widely adopted, easy to set up, and integrates well with modern fr
 ## Who in the group has prior knowledge about this tech?
 Louis and Gabiel have prior experience in Express.js, making learning easier for the group.
 
-## What this tech could allow us to improve our area workflow?
-- Enables fast prototyping and API development with minimal setup.
+## How could this tech allow us to improve our area workflow?
+- Enables fast function prototyping and API development with minimal setup.
 - Its middleware system simplifies server-side logic, authentication, and error handling.
 - Offers seamless integration with JavaScript tools, databases, and services, reducing friction in connecting systems.
 - Using JavaScript promotes code reusability across front-end and back-end, streamlining full-stack development.
