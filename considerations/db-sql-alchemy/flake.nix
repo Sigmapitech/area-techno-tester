@@ -6,9 +6,13 @@
       pyenv = pkgs.python3.withPackages (p: [
         p.sqlalchemy
         p.graphviz
+        p.pymysql
       ]);
     in pkgs.mkShell {
-      packages = [ pyenv ];
+      packages = [
+        pyenv
+        pkgs.mariadb
+      ];
     };
   };
 }

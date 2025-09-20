@@ -6,7 +6,7 @@ from schema import Base, User, AuthToken, Workflow, WorkflowNode
 
 
 def main():
-    engine = create_engine('sqlite:///example.db', echo=True)
+    engine = create_engine('mysql+pymysql://root:@localhost:3306/db_name', echo=True)
 
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
