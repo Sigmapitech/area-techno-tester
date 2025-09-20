@@ -1,0 +1,12 @@
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/flutter_con_test
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/home/lilianbazantay/delivery/3eme_annee/area_project/area-techno-tester/considerations/mobile-flutter/flutter_con_test/build/linux/x64/debug/bundle/data/flutter_assets/version.json
