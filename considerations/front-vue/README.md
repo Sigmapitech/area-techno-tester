@@ -12,7 +12,7 @@ Additionally, by combining Vue with [CapacitorJS](https://capacitorjs.com/), we 
 ## Who in the group has prior knowledge about this tech?
 Yohan & Louis have prior experience in Express.js, making learning easier for the group.
 
-## What this tech could allow us to improve our area workflow?
+## How could this tech allow us to improve our area workflow?
 - Enable us to represent processes as interactive flow diagrams.
 - Provide an intuitive UI for users to visualize and manipulate nodes, connections, and data.
 - Enhance project presentations with dynamic, visual workflows instead of static diagrams.
