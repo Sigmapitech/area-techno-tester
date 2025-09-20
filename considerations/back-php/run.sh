@@ -1,1 +1,1 @@
-php -S localhost:8000 -t .
+php -S localhost:8000 index.php
