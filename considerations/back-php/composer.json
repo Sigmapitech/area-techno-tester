@@ -1,0 +1,14 @@
+{
+  "name": "sigmanificient/lmt-questionnaire",
+  "autoload": {
+    "psr-4": {
+      "demo\\": "./"
+    }
+  },
+  "authors": [
+    {
+      "name": "Yohann Boniface",
+      "email": "edhyjox@gmail.com"
+    }
+  ]
+}
