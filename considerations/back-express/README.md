@@ -7,13 +7,13 @@
 Express.js is widely adopted, easy to set up, and integrates well with modern front-end frameworks and databases. It is a proven solution for quickly developing reliable server-side applications.
 
 ## Who in the group has prior knowledge about this tech?
-Louis has prior experience in Express.js, making learning easier for the group.
+Louis and Gabiel have prior experience in Express.js, making learning easier for the group.
 
 ## What this tech could allow us to improve our area workflow?
-- Faster prototyping and development of APIs
-- Simplified server-side logic with middleware
-- Easier integration with third-party tools and services
-- Reusability of JavaScript across the stack
+- Enables fast prototyping and API development with minimal setup.
+- Its middleware system simplifies server-side logic, authentication, and error handling.
+- Offers seamless integration with JavaScript tools, databases, and services, reducing friction in connecting systems.
+- Using JavaScript promotes code reusability across front-end and back-end, streamlining full-stack development.
 
 ## What is General feeling? (installation, tools, libs & support)
 The general sentiment is positive: installation is straightforward, the tooling ecosystem is mature, and a wide range of middleware and libraries are available. Community support is strong, and most issues can be quickly resolved with existing resources.
