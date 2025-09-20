@@ -12,7 +12,6 @@
         graphviz
         pyenv
         feh
-        postgresql
       ];
     };
   };
