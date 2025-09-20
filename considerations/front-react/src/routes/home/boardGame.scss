@@ -1,10 +1,5 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
 .game {
+  padding: 2em;
   display: flex;
   gap: 2em;
 
@@ -23,12 +18,5 @@
   .board-row {
     display: flex;
     gap: 1em;
-  }
-
-  .square {
-    box-sizing: content-box;
-    height: 2em;
-    width: 2em;
-    padding: 1em;
   }
 }

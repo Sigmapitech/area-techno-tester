@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import Square from './Square';
+import Square from "@/components/square";
+import { useState } from "react";
 
-import './App.scss'
+import "./boardGame.scss"
 
 interface BoardProps {
     xIsNext: boolean;

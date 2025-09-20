@@ -1,3 +1,5 @@
+import "./style.scss"
+
 interface SquareProps {
     value: string
     onSquareClick: () => void;
