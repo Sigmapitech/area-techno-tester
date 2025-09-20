@@ -10,7 +10,7 @@ Our project requires workflows and visual connections between elements, which Vu
 Additionally, by combining Vue with [CapacitorJS](https://capacitorjs.com/), we can package the project as an Android app (and even iOS if needed). This allows us to reach mobile users without rewriting the application.
 
 ## Who in the group has prior knowledge about this tech?
-Yohan & Louis have prior experience in Express.js, making learning easier for the group.
+Yohan & Louis have prior experience in vue.js, making learning easier for the group.
 
 ## How could this tech allow us to improve our area workflow?
 - Enable us to represent processes as interactive flow diagrams.
