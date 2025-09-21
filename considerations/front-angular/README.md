@@ -26,9 +26,7 @@ which would make the learning curve steeper for most of us.
 
 ## What is the general feeling?
 
-The general feeling is mixed. While Angular is powerful, it also feels heavy and complex compared to the flexibility of React.
-Since only Yohann is comfortable with it, adoption would slow down the rest of the group.
-The framework can feel strict and verbose, which may not align well with our preferred development style.
+The general feeling is mixed. While Angular is powerful, it also feels heavy and complex compared to the flexibility of React. The framework can feel strict and verbose, which may not align well with our preferred development style.
 
 ## Advantages
 
@@ -42,7 +40,6 @@ The framework can feel strict and verbose, which may not align well with our pre
 * Steeper learning curve for most of the team.
 * More verbose and less flexible than React.
 * Can feel heavy for smaller projects.
-* Reliance on a single team member’s expertise could slow development.
 
 ## Use Cases
 
@@ -51,4 +48,4 @@ The framework can feel strict and verbose, which may not align well with our pre
 
 ## Conclusion
 
-Angular is a powerful and structured framework, but since only Yohann has experience with it, it doesn’t play to the strengths of the group. The steep learning curve, combined with its heavier setup, makes it less practical for us compared to lighter, more familiar options like React or React Native.
+Angular is a powerful and structured framework, but it doesn’t play to the strengths of the group. The steep learning curve, combined with its heavier setup, makes it less practical for us compared to lighter, more familiar options like React or React Native.
