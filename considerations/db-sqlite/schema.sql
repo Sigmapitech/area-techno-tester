@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS Users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    login TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    authentication_string TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Workflows (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS WorkflowNodes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    workflow_id INTEGER NOT NULL,
+    node_type TEXT NOT NULL,
+    content TEXT NOT NULL,
+    parent_id INTEGER,
+    FOREIGN KEY(workflow_id) REFERENCES Workflows(id) ON DELETE CASCADE,
+    FOREIGN KEY(parent_id) REFERENCES WorkflowNodes(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS AuthTokens (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    service TEXT NOT NULL,
+    scope TEXT,
+    token TEXT NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES Users(id) ON DELETE CASCADE
+);
