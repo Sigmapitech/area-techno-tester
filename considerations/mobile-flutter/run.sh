@@ -3,9 +3,6 @@ set -euo pipefail
 
 cd "$(dirname "$0")/flutter_con_mobile"
 
-JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-PATH=$JAVA_HOME/bin:$PATH
-
 # clean dependencies before building APK
 flutter clean
 flutter build apk --release

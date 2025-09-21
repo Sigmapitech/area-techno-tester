@@ -36,6 +36,9 @@
               export PATH="$PATH:$PUB_CACHE/bin"
             fi
 
+            export JAVA_HOME=${pkgs.jdk17.home}
+            export PATH="$JAVA_HOME/bin:$PATH"
+
             dart pub global activate protoc_plugin
           '';
         };
