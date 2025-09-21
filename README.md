@@ -7,26 +7,26 @@ This project is designed to explore and compare various web technologies.
 
 Tested technologies are split into POC (proof of concept) and Con (Consideration)
 
+- Back:
+  - Con - **Express**
+  - Con - **Flask**
+  - Con - **PHP**
+  - POC - **FastAPI**
+- DB:
+  - Con - **MangoDB**
+  - Con - **PostgresSQL**
+  - Con - **SQLite**
+  - POC - **SQLAlchemy**
 - Front:
   - Con - **Angular**
   - Con - **HTML / CSS / JavaScript**
   - Con - **Vue.js**
   - POC - **React**
-- Back:
-  - Con - **PHP**
-  - POC - **FastAPI**
-  - Con - **Express**
-  - Con - **Flask**
-- DB:
-  - Con - **SQLite**
-  - POC - **postgreSQL**
-  - Con - **MangoDB**
-- ORM
-  - POC - **SQLAlchemy**
-  - Con - **Django ORM**
-  - Con - **Squelize**
-- Other
-  - Con - **jinja**
+- Mobile:
+  - Con - **Flutter**
+  - Con - **Kotlin**
+  - Con - **React Native**
+  - POC - **React + Capacitor**
 
 ## Purpose
 Evaluate, prototype, and benchmark multiple frameworks and languages to identify the most suitable technology for the EPITECH arena project. This platform supports learning, experimentation, and informed decision-making.
@@ -40,14 +40,21 @@ tech-tester-arena
 │   ├── back-fastapi
 │   └── db-orm-slqalchemy
 └─── considerations
+    ├── back-express
+    ├── back-fastapi
+    ├── back-flask
+    ├── back-php
+    ├── db-mongo
+    ├── db-postgres
+    ├── db-sql-alchemy
+    ├── db-sqlite
     ├── front-angular
     ├── front-html-css-js
+    ├── front-react
     ├── front-vue
-    ├── front-jinja
-    ├── back-php
-    ├── back-fastapi
-    ├── back-express
-    └── back-flask
+    ├── mobile-flutter
+    ├── mobile-kotlin
+    └── mobile-react-native 
 ```
 
 ## POC / Con testing policy
@@ -57,8 +64,16 @@ tech-tester-arena
     - back: routing, json, cron, oauth2
   - Multiple questions to answer:
     - Why we considered it? (short description about it)
-    - Who in the grous has prior knowledge about this tech?
+    - Who in the group has prior knowledge about this tech?
     - What this tech could allows us to improve our area workflow?
     - What is General feeling? (intallation, tools, libs & support)
 - POC:
   - min req for fonctional area project
+
+## Our choices
+
+After testing multiple technologies we decided to settle on those technologies:
+ - fastAPI for the backend.
+ - SQLAlchemy alongside mariaDB for the orm.
+ - React for the frontend of the web application.
+ - React with capacitor for the frontend of the mobile application. 
