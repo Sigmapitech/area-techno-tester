@@ -1,0 +1,6 @@
+flutter_con_test/.dart_tool/*
+flutter_con_test/.idea/*
+flutter_con_test/build/*
+flutter_con_test/ios/Flutter/Flutter.framework
+flutter_con_test/ios/Flutter/Flutter.podspec
+flutter_con_test/linux/flutter/ephemeral/*
