@@ -1,6 +1,7 @@
 # Consideration for PHP
 
 ## Overview
+
 [PHP](https://www.php.net/) is a widely used, general-purpose
 scripting language designed for web development.
 It runs on the server side and powers a large portion of the internet,
@@ -24,7 +25,7 @@ Yohann have prior experience with PHP, which can help speed up development and t
 ## How could this tech allow us to improve our area workflow?
 - Provide a lightweight and fully customizable backend tailored to our project needs.
 - Enable direct control over routing, request handling, and application structure.
-- Allow rapid prototyping and iteration thanks to PHP's simple syntax.
+- Allow rapid prototyping and iteration thanks to PHP’s simple syntax.
 - Simplify deployment due to PHP's universal support across hosting environments.
 - Large pool of tutorials, guides, and community support makes problem-solving easier.
 
