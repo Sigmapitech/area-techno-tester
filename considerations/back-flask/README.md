@@ -9,7 +9,7 @@ Our project requires a backend service, and Flask's simplicity allows us to quic
 Flask also has a long track record, which means strong community support and a wealth of resources for troubleshooting.
 
 ## Who in the group has prior knowledge about this tech?
-None of the group members have prior experience in Flask, which means there may be a learning curve involved in backend development. However, Flask's simplicity and extensive documentation should help us get up to speed quickly.
+Yohann has prior experience with Flask, and Flask's simplicity extensive documentation could help get up to speed quickly.
 
 ## How could this tech allow us to improve our area workflow?
 - Provide a straightforward way to build RESTful APIs.
