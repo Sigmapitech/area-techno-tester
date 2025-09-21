@@ -4,26 +4,3 @@
   flex-direction: column;
   gap: 1em;
 }
-
-.game {
-  display: flex;
-  gap: 2em;
-  flex-wrap: wrap;
-
-  &-board {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  }
-
-  &-info > ol {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  }
-
-  .board-row {
-    display: flex;
-    gap: 1em;
-  }
-}
