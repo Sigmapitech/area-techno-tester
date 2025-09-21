@@ -16,8 +16,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Namer App',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        ),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),),
         home: MyHomePage(),
       ),
     );
@@ -64,7 +63,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('An awesome idea:'),
-            BIgCard(pair: pair),
+            BigCard(pair: pair),
             SizedBox(height: 10),
             Row(
               mainAxisSize: MainAxisSize.min,
@@ -88,8 +87,8 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class BIgCard extends StatelessWidget {
-  const BIgCard({
+class BigCard extends StatelessWidget {
+  const BigCard({
     super.key,
     required this.pair,
   });
