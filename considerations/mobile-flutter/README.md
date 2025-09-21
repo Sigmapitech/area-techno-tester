@@ -16,7 +16,7 @@ Only Julien had a bit of knowledge about this technology, meaning it required fo
 - Provide natural support for some commons IDEs, with a decent amount of options and the ability to run the application in an emulator directly throught said IDE.
 
 ## What is General Feeling? (installations, tools, libs & support)
-Overall, the language isn't unpleasant. The installation felt somewhat bad due to Android studio being very heavy. The tutos and documentation really make it easy to get started. It was decently hard to create the APK at first but making an application for computer was really easy. 
+Overall, the experience was pretty midling. The installation went really poorly. While the code documentation is well-made, the installations tutorials are very bad and don't take into account some factors.
 
 ## Advantages
 - Can be used for both Ios and Android.

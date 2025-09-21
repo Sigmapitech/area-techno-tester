@@ -3,7 +3,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")/flutter_con_mobile"
 
-# Build release APK
+# clean dependencies before building APK
+flutter clean
 flutter build apk --release
 
 APK_PATH="build/app/outputs/flutter-apk/app-release.apk"
