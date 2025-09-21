@@ -7,6 +7,8 @@ cd "$(dirname "$0")/flutter_con_mobile"
 flutter clean
 flutter build apk --release
 
+JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+PATH=$JAVA_HOME/bin:$PATH
 APK_PATH="build/app/outputs/flutter-apk/app-release.apk"
 
 if [ ! -f "$APK_PATH" ]; then
