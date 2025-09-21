@@ -72,7 +72,7 @@ tech-tester-arena
 
 ## Our choices
 
-After testing multiple technologies we decided to settle on those technologies:
+After testing multiple technologies we decided to settle on these:
  - fastAPI for the backend.
  - SQLAlchemy alongside mariaDB for the orm.
  - React for the frontend of the web application.
