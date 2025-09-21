@@ -1,26 +1,18 @@
 {
-  description = "Flutter environment (no Android, no Web)";
-
-  inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs";
-  };
-
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in
-      {
-        devShell = with pkgs; mkShell rec {
+  outputs = { self }: let
+    pkgs = import ../../nixpkgs.nix {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+      config.android_sdk.accept_license = true;
+    };
+  in {
+    devShells.${pkgs.system} = {
+      default = with pkgs; pkgs.mkShell {
           JAVA_HOME = jdk17.home;
           FLUTTER_ROOT = flutter;
           DART_ROOT = "${flutter}/bin/cache/dart-sdk";
 
-          buildInputs = [
+          packages = [
             flutter
             gradle
             jdk17
@@ -31,7 +23,9 @@
             gtk3.dev
             grpcurl
             pkg-config
-          ];
+          ] ++ (with pkgs.androidenv.androidPkgs; [
+            androidsdk
+          ]);
 
           CMAKE_PREFIX_PATH = "${pkgs.lib.makeLibraryPath [libsecret.dev gtk3.dev]}";
 
@@ -45,6 +39,19 @@
             dart pub global activate protoc_plugin
           '';
         };
-      }
-    );
+      android = pkgs.mkShell {
+        inherit (self.devShells.${pkgs.system}) default;
+        env = rec {
+          ANDROID_SDK_ROOT = "${pkgs.androidenv.androidPkgs.androidsdk}/libexec/android-sdk";
+          ANDROID_HOME = ANDROID_SDK_ROOT;
+          PATH = "$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH";
+        };
+        packages = with pkgs; [
+          android-studio-full
+        ] ++ (with pkgs.androidenv.androidPkgs; [
+          emulator
+        ]);
+      };
+    };
+  };
 }
