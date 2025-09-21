@@ -1,13 +1,19 @@
 # Consideration for Vue with Vue-Flow
 
 ## Overview
-[Vue](https://vuejs.org/) is a progressive JavaScript framework for building user interfaces. It is designed to be incrementally adoptable and can scale from a simple library to a full-featured framework.
-[Vue Flow](https://vue-flow.dev/) is a Vue 3 component library for building node-based editors and interactive graphs. It allows developers to create flow diagrams, node editors, and other visual tools with ease.
+[Vue](https://vuejs.org/) is a progressive JavaScript framework for building user interfaces.
+It is designed to be incrementally adoptable and can scale from a simple library to a full-featured framework.
+[Vue Flow](https://vue-flow.dev/) is a Vue 3 component library for building node-based editors
+and interactive graphs. It allows developers to create flow diagrams, node editors,
+and other visual tools with ease.
 
 ## Why we considered it?
-We considered Vue with Vue Flow because it provides a strong balance between simplicity, flexibility, and visual interactivity.
-Our project requires workflows and visual connections between elements, which Vue Flow can model directly inside a Vue app.
-Additionally, by combining Vue with [CapacitorJS](https://capacitorjs.com/), we can package the project as an Android app (and even iOS if needed). This allows us to reach mobile users without rewriting the application.
+We considered Vue with Vue Flow because it provides a strong balance between simplicity,
+flexibility, and visual interactivity. Our project requires workflows and visual
+connections between elements, which Vue Flow can model directly inside a Vue app.Additionally,
+by combining Vue with [CapacitorJS](https://capacitorjs.com/), we can package the project
+as an Android app (and even iOS if needed). This allows us to reach mobile users without
+rewriting the application.
 
 ## Who in the group has prior knowledge about this tech?
 Yohann & Louis have prior experience in vue.js, making learning easier for the group.
@@ -22,8 +28,10 @@ Yohann & Louis have prior experience in vue.js, making learning easier for the g
 ## What is General feeling? (installation, tools, libs & support)
 - **Installation**: Straightforward with npm. Vue Flow integrates seamlessly with Vue 3 projects.
 - **Tools**: Works well with modern tooling like Vite.
-- **Libraries & Support**: Vue Flow has clear documentation, examples. Vue itself has a large ecosystem with long-term support.
-- **Learning Curve**: Easy for simple projects but may require additional time for customization of nodes and edges.
+- **Libraries & Support**: Vue Flow has clear documentation, examples. Vue itself has a
+large ecosystem with long-term support.
+- **Learning Curve**: Easy for simple projects but may require additional time for
+customization of nodes and edges.
 
 ## Advantages
 - Vue is lightweight, modular, and beginner-friendly.
@@ -35,7 +43,8 @@ Yohann & Louis have prior experience in vue.js, making learning easier for the g
 
 ## Disadvantages
 - Smaller ecosystem and fewer libraries compared to React.
-- Vue's community, while active, is smaller than React's, leading to fewer resources and third-party tools.
+- Vue's community, while active, is smaller than React's, leading to fewer resources
+and third-party tools.
 - Vue's flexibility can sometimes lead to inconsistent patterns across projects.
 - CapacitorJS adds some complexity when configuring native builds.
 
@@ -48,9 +57,13 @@ Yohann & Louis have prior experience in vue.js, making learning easier for the g
 
 ## Test
 A web app containing a Vue Flow graph with nodes and connections.
-Text, images, and buttons are displayed below the graph, demonstrating integration of Vue Flow with standard Vue components.
+Text, images, and buttons are displayed below the graph, demonstrating integration of
+Vue Flow with standard Vue components.
 The same project but packaged into an Android app.
 
 ## Conclusion
 Vue with Vue Flow is a strong candidate for our project with the visual workflow and interactive graphs.
-It provides a modern, reactive, and maintainable framework along with a specialized tool to handle diagramming needs. While it introduces a slight learning curve, the advantages of interactivity, flexibility, and clear visuals outweigh the drawbacks for our project context. Furthermore, using CapacitorJS opens the door to delivering the same solution as a mobile app.
+It provides a modern, reactive, and maintainable framework along with a specialized tool to
+handle diagramming needs. While it introduces a slight learning curve, the advantages of interactivity,
+flexibility, and clear visuals outweigh the drawbacks for our project context.
+Furthermore, using CapacitorJS opens the door to delivering the same solution as a mobile app.

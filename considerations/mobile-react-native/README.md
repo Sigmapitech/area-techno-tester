@@ -2,15 +2,22 @@
 
 ## Overview
 
-[React Native](https://reactnative.dev/) is a framework developed by Meta that lets developers build mobile apps using **React** and **JavaScript/TypeScript**. It compiles to native components, so apps look and feel close to native while still using a single codebase for both **Android** and **iOS**.
+[React Native](https://reactnative.dev/) is a framework developed by Meta that lets developers
+build mobile apps using **React** and **JavaScript/TypeScript**. It compiles to native components,
+so apps look and feel close to native while still using a single codebase
+for both **Android** and **iOS**.
 
 ## Why we considered it?
 
-Since our team already has strong knowledge of React and TypeScript, React Native feels like a natural extension. It reuses concepts we already know (components, props, hooks, state management), which means less time learning from scratch and more time actually building features.
+Since our team already has strong knowledge of React and TypeScript,
+React Native feels like a natural extension.
+It reuses concepts we already know (components, props, hooks, state management),
+which means less time learning from scratch and more time actually building features.
 
 ## Who in the group has prior knowledge about this tech?
 
-Julien have baseline experience with React Native, and almost everyone in the group has solid knowledge of React and TypeScript, which makes the transition easier.
+Julien have baseline experience with React Native, and almost everyone in
+the group has solid knowledge of React and TypeScript, which makes the transition easier.
 
 ## How could this tech allow us to improve our workflow?
 
@@ -21,7 +28,10 @@ Julien have baseline experience with React Native, and almost everyone in the gr
 
 ## What is the general feeling?
 
-The general feeling is positive. React Native is lighter to work with than Android Studio/Kotlin and more approachable thanks to our existing React/TypeScript background. While it sometimes requires fiddling with native modules for advanced features, the ease of getting started and building cross-platform apps outweighs the downsides.
+The general feeling is positive. React Native is lighter to work with than Android
+Studio/Kotlin and more approachable thanks to our existing React/TypeScript background.
+While it sometimes requires fiddling with native modules for advanced features,
+the ease of getting started and building cross-platform apps outweighs the downsides.
 
 ## Advantages
 
@@ -45,4 +55,7 @@ The general feeling is positive. React Native is lighter to work with than Andro
 
 ## Conclusion
 
-React Native fits our team well: it aligns with our existing knowledge, allows us to develop for both Android and iOS, and avoids the heaviness of Android Studio. While not as fast as fully native development, its balance of productivity, flexibility, and cross-platform reach makes it a strong choice for our needs.
+React Native fits our team well: it aligns with our existing knowledge,
+allows us to develop for both Android and iOS, and avoids the heaviness of Android Studio.
+While not as fast as fully native development, its balance of productivity, flexibility,
+and cross-platform reach makes it a strong choice for our needs.

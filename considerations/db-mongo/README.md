@@ -9,7 +9,7 @@ requiring scalability and schema flexibility.
 
 ## Why we considered it?
 We considered MongoDB because our project may involve storing dynamic or
-evolving data structures. MongoDB’s schema-less design allows quick iteration
+evolving data structures. MongoDB's schema-less design allows quick iteration
 without heavy database migrations. It also integrates well with Python
 libraries (e.g., Motor, PyMongo) and can scale horizontally when needed.
 
