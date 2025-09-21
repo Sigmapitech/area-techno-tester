@@ -2,13 +2,10 @@ import importlib
 
 from fastapi import APIRouter, FastAPI
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+
+from ..schemas import Message
 
 router = APIRouter()
-
-
-class Message(BaseModel):
-    message: str
 
 
 @router.get(
@@ -31,7 +28,7 @@ async def hello_world():
 
 def register_all(app: FastAPI):
     app.include_router(router)
-    for module in ():
+    for module in ("auth",):
         mod = importlib.import_module(f".{module}", package="app.endpoints")
         app.include_router(mod.router, prefix=f"/api/{module}", tags=[f"{module}"])
 
