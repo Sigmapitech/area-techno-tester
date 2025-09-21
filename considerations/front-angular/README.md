@@ -10,8 +10,8 @@ Angular is more opinionated and comes with a strict architecture out of the box.
 ## Why we considered it?
 
 Angular is a mature and well-supported framework. It enforces strong structure and patterns,
-which can help with maintainability in larger projects. Since it’s backed by Google
-and used in many enterprise settings, it’s a proven choice for building complex apps.
+which can help with maintainability in larger projects. Since it's backed by Google
+and used in many enterprise settings, it's a proven choice for building complex apps.
 
 ## Who in the group has prior knowledge about this tech?
 
@@ -22,13 +22,15 @@ which would make the learning curve steeper for most of us.
 
 * Provides a clear and opinionated structure, which reduces decision-making overhead.
 * Built-in features (like routing, forms, dependency injection) reduce the need for external libraries.
-* Strong TypeScript support fits well with our team’s existing knowledge.
+* Strong TypeScript support fits well with our team's existing knowledge.
 
 ## What is the general feeling?
 
-The general feeling is mixed. While Angular is powerful, it also feels heavy and complex compared to the flexibility of React.
+The general feeling is mixed. While Angular is powerful, it also feels heavy and
+complex compared to the flexibility of React.
 Since only Yohann is comfortable with it, adoption would slow down the rest of the group.
-The framework can feel strict and verbose, which may not align well with our preferred development style.
+The framework can feel strict and verbose, which may not align well with our
+preferred development style.
 
 ## Advantages
 
@@ -42,7 +44,7 @@ The framework can feel strict and verbose, which may not align well with our pre
 * Steeper learning curve for most of the team.
 * More verbose and less flexible than React.
 * Can feel heavy for smaller projects.
-* Reliance on a single team member’s expertise could slow development.
+* Reliance on a single team member's expertise could slow development.
 
 ## Use Cases
 
@@ -51,4 +53,7 @@ The framework can feel strict and verbose, which may not align well with our pre
 
 ## Conclusion
 
-Angular is a powerful and structured framework, but since only Yohann has experience with it, it doesn’t play to the strengths of the group. The steep learning curve, combined with its heavier setup, makes it less practical for us compared to lighter, more familiar options like React or React Native.
+Angular is a powerful and structured framework, but since only Yohann has experience with it,
+it doesn't play to the strengths of the group. The steep learning curve,
+combined with its heavier setup, makes it less practical for us compared to lighter,
+more familiar options like React or React Native.

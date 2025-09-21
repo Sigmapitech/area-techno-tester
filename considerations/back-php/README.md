@@ -1,10 +1,23 @@
 # Consideration for PHP
 
 ## Overview
-[PHP](https://www.php.net/) is a widely used, general-purpose scripting language designed for web development. It runs on the server side and powers a large portion of the internet, including platforms like WordPress, Drupal, and MediaWiki. PHP is often embedded directly into HTML, but can also be used with frameworks (e.g., Laravel, Symfony) to build more structured and scalable applications. Its maturity and widespread adoption make it a reliable choice for backend development.
+
+[PHP](https://www.php.net/) is a widely used, general-purpose
+scripting language designed for web development.
+It runs on the server side and powers a large portion of the internet,
+including platforms like WordPress, Drupal, and MediaWiki.
+PHP is often embedded directly into HTML,
+but can also be used with frameworks (e.g., Laravel, Symfony)
+to build more structured and scalable applications.
+Its maturity and widespread adoption make it a reliable choice for backend development.
 
 ## Why we considered it?
-We considered PHP because it allows us to build and customize our own lightweight framework without relying on external dependencies. By working directly with raw PHP, we gain full control over the project structure, routing, and logic. This approach also helps the team better understand how frameworks work under the hood, while keeping the solution simple and tailored to our specific needs.
+We considered PHP because it allows us to build
+and customize our own lightweight framework without
+relying on external dependencies. By working directly with raw PHP,
+we gain full control over the project structure, routing, and logic.
+This approach also helps the team better understand how frameworks
+work under the hood, while keeping the solution simple and tailored to our specific needs.
 
 ## Who in the group has prior knowledge about this tech?
 Yohann have prior experience with PHP, which can help speed up development and troubleshooting.
@@ -45,6 +58,9 @@ Yohann have prior experience with PHP, which can help speed up development and t
 A simple PHP demonstrating a basic API to provide structured endpoints.
 
 ## Conclusion
-PHP is a dependable choice for backend development due to its simplicity, broad availability, and strong ecosystem.
-While it may not offer the performance of modern async frameworks like FastAPI, its ease of use and deployment make it suitable for projects prioritizing accessibility and stability.
-For our project, PHP provides a solid backend solution despite lacking some advanced features of newer technologies.
+PHP is a dependable choice for backend development due to its simplicity, broad availability,
+and strong ecosystem.
+While it may not offer the performance of modern async frameworks like FastAPI,
+its ease of use and deployment make it suitable for projects prioritizing accessibility and stability.
+For our project, PHP provides a solid backend solution despite lacking some
+advanced features of newer technologies.
