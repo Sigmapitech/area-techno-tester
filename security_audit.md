@@ -4,15 +4,12 @@ This audit reviews a stack including **React/React Flow (UI), FastAPI (Python ba
 We examine common web risks (XSS, CSRF, SQL injection, etc.) and recommend mitigations for each layer.
 
 ## Frontend (React & React Flow)
-_Figure: Cross-Site Scripting (XSS) attack flow._  
 React's JSX rendering engine escapes content by default (script tags are rendered harmless as strings).  
 [stackhawk.com](stackhawk.com)  
 This means ordinary JSX is safe from script injection.
 However, using `dangerouslySetInnerHTML` or manual DOM APIs reintroduces XSS risk.  
 [stackhawk.com](stackhawk.com)  
 Always sanitize or avoid inserting raw HTML.
-Use libraries like DOMPurify for any required HTML rendering, and enforce a strict Content Security Policy (CSP) to restrict where scripts can load.  
-[dev.to](dev.to)  
 Also audit third-party libraries: for example, React Flow (a graph/flow UI lib) currently has no reported vulnerabilities (Snyk reports zero issues).  
 [security.snyk.io](security.snyk.io)  
 Still, keep React Flow and all NPM packages up-to-date to avoid supply-chain attacks.
@@ -28,7 +25,6 @@ Avoid eval-like functions.
 - **React Flow Usage:** Treat React Flow like any UI code: do not pass user-controlled text into its renderers without sanitization.
 
 ## Authentication & OAuth
-_Figure: Cross-Site Request Forgery (CSRF) attack diagram._  
 OAuth2 flows and session handling must be hardened.
 **Always include a state parameter in OAuth redirects** - a unique, non-guessable value to correlate requests and mitigate CSRF.  
 [auth0.com](auth0.com)  
@@ -56,8 +52,6 @@ Finally, minimize token scope and lifespan (short-lived access tokens, rotating 
 ## API Backend (FastAPI & Secure API Design)
 FastAPI encourages secure practices but configuration is key.
 **Serve only over HTTPS** (e.g. run Uvicorn with SSL certs) to prevent man-in-the-middle attacks.  
-[escape.tech](escape.tech)  
-Use Pydantic models to validate and sanitize all input (types, lengths, formats) [escape.tech](escape.tech) - this prevents injection and broken logic.
 For example, never interpolate user data directly into SQL queries or HTML.
 Restrict CORS to known origins and required methods; avoid Access-Control-Allow-Origin: * if credentials are used.
 Implement rate-limiting or other throttling to mitigate brute force/DoS.
