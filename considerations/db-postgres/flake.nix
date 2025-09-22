@@ -6,10 +6,10 @@
       pyenv = pkgs.python3.withPackages (p: [
         p.graphviz
         p.psycopg2
+        p.sqlalchemy
       ]);
     in pkgs.mkShell {
       packages = with pkgs; [
-        graphviz
         pyenv
         feh
       ];
