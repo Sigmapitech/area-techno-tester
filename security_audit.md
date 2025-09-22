@@ -4,9 +4,9 @@ This audit reviews a stack including **React/React Flow (UI), FastAPI (Python ba
 We examine common web risks (XSS, CSRF, SQL injection, etc.) and recommend mitigations for each layer.
 
 ## Frontend (React & React Flow)
-React's JSX rendering engine escapes content by default (script tags are rendered harmless as strings).  
+React's JSX rendering engine escapes content by default (script tags are rendered harmless as strings).
+This means ordinary JSX is safe from script injection.  
 [source](https://www.stackhawk.com/blog/react-xss-guide-examples-and-prevention/#:~:text=React%20outputs%20elements%20and%20data,render%20it%20as%20a%20string)  
-This means ordinary JSX is safe from script injection.
 However, using `dangerouslySetInnerHTML` or manual DOM APIs reintroduces XSS risk.  
 [source](https://www.stackhawk.com/blog/react-xss-guide-examples-and-prevention/#:~:text=All%20HTML%20elements%20contained%20by,docs%20also%20mention%20this%20here)  
 Always sanitize or avoid inserting raw HTML.
@@ -16,7 +16,7 @@ Still, keep React Flow and all NPM packages up-to-date to avoid supply-chain att
 
 ### Key mitigations:
 
-- **Sanitize Inputs:** Never use dangerouslySetInnerHTML on untrusted data.
+- **Sanitize Inputs:** Never use `dangerouslySetInnerHTML` on untrusted data.
 Escape or purge HTML content on the client.
 - **CSP Headers:** Serve a strong Content-Security-Policy to block inline scripts and unauthorized sources.  
 [source](https://dev.to/ceblakely/web-security-for-developers-cross-site-scripting-xss-1hh9#:~:text=,CSP)
@@ -47,7 +47,6 @@ Finally, minimize token scope and lifespan (short-lived access tokens, rotating 
 [source](https://www.stackhawk.com/blog/react-csrf-protection-guide-examples-and-how-to-enable-it/#:~:text=match%20at%20L1926%20The%20sameSite%3A,depth)
 - **Token Storage:** Store tokens only in OS-provided secure storage (Keychain/Keystore), not in browser-accessible storage.  
 [source](https://developers.google.com/identity/protocols/oauth2/resources/best-practices#:~:text=Handle%20user%20tokens%20securely)
-- **HTTPS Everywhere:** Ensure all auth endpoints use TLS.
 
 ## API Backend (FastAPI & Secure API Design)
 FastAPI encourages secure practices but configuration is key.
@@ -152,9 +151,9 @@ and storing OAuth tokens insecurely on the client could lead to account compromi
 Each of the above sections identifies mitigations - in summary:
 - **Sanitize and Validate Everything:** Use built-in frameworks (React auto-escaping, FastAPI/Pydantic validation) and parameterized queries.  
 [source](https://www.stackhawk.com/blog/react-xss-guide-examples-and-prevention/#:~:text=React%20outputs%20elements%20and%20data,render%20it%20as%20a%20string) [source](https://realpython.com/prevent-python-sql-injection/#:~:text=think%20about%20when%20trying%20to,compose%20a%20query%20with%20parameters)
-- **Harden Auth Flows:** Use OAuth2 best practices (state, PKCE), secure cookies, HTTPS, and short-lived tokens.  
+- **Harden Auth Flows:** Use OAuth2 best practices (state, PKCE), secure cookies, and short-lived tokens.  
 [source](https://auth0.com/docs/secure/attack-protection/state-parameters#:~:text=CSRF%20attacks) [source](https://capacitorjs.com/docs/guides/security#:~:text=This%20is%20especially%20important%20for,for%20oAuth2%20in%20Capacitor%20apps)
-- **Lock Down Infrastructure:** Require passwords for Redis, restrict DB access, enforce HTTPS, and use firewalls.
+- **Lock Down Infrastructure:** Require passwords for Redis, restrict DB access.
   Follow principle of least privilege everywhere.
 
 Implementing these recommendations will mitigate CSRF, XSS, SQLi, and related OWASP Top 10 risks, yielding a robust security posture for the given stack.
