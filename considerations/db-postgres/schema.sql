@@ -1,0 +1,29 @@
+CREATE TABLE IF NOT EXISTS Users (
+    id SERIAL PRIMARY KEY,
+    login VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    authentication_string VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Workflows (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT
+);
+
+CREATE TABLE IF NOT EXISTS WorkflowNodes (
+    id SERIAL PRIMARY KEY,
+    workflow_id INTEGER NOT NULL REFERENCES Workflows(id) ON DELETE CASCADE,
+    node_type VARCHAR(50) NOT NULL,
+    content TEXT NOT NULL,
+    parent_id INTEGER REFERENCES WorkflowNodes(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS AuthTokens (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES Users(id) ON DELETE CASCADE,
+    service VARCHAR(255) NOT NULL,
+    scope VARCHAR(255),
+    token TEXT NOT NULL
+);
+
