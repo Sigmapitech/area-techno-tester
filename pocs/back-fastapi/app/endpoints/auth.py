@@ -4,7 +4,7 @@ from re import compile
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, Header, HTTPException
-from jwt import ExpiredSignatureError, InvalidTokenError, decode, encode, exceptions
+from jwt import ExpiredSignatureError, InvalidTokenError, decode, encode
 from passlib.hash import bcrypt
 from pydantic import BaseModel, EmailStr, StringConstraints
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -53,7 +53,7 @@ def decode_access_token(token: str):
         return payload
     except ExpiredSignatureError:
         raise HTTPException(status_code=401, detail="Token has expired")
-    except InvalidTokenError as e:
+    except InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
 

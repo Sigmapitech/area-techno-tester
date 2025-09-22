@@ -7,12 +7,10 @@ from http import HTTPStatus
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException as StarletteHTTPException
-from starlette.responses import FileResponse, JSONResponse
+from starlette.responses import JSONResponse
 
 from . import endpoints
-from .config import settings
 from .db import init_db
 
 logger = logging.getLogger(__name__)
