@@ -16,8 +16,7 @@ every person would note some information about the technologie they’re testing
 as a whole or how it could help us upgrade our workflow. Once all that was done, we would create a markdown
 file for said technologies that would answer all questions and include other information such as the language
 utility or who in our group had knowledge about this. Once all that was done, we would create a pull request,
-and ask for at leIn order to realize the project, we considered multiple technologies, and thus decided to test them. We listed each of them in the considerations folder, each having their own sub-folders. For every consideration we would create a branch for it, and do a basic tutorial for said consideration. While we would do the tutorial, every person would note some information about the technologie they’re testing, such as how the language felt as a whole or how it could help us upgrade our workflow. Once all that was done, we would create a markdown file for said technologies that would answer all questions and include other information such as the language utility or who in our group had knowledge about this. Once all that was done, we would create a pull request, and ask for at least two persons to review it. They would try the considerations and if it reached what was expected, it would be merged towards the main.
-Once that was done, we selected the technologies we preferred and made a POC with them. The POC included a connection page, an OAuth connection and an application that uses the OAuth connection.ast one persons to review it. They would try the considerations and if it reached what was
+and ask for at least one persons to review it. They would try the considerations and if it reached what was
 expected, it would be merged towards the main.
 
 Once that was done, we selected the technologies we preferred and made a POC with them.
@@ -63,7 +62,10 @@ than MangoDB, a very important factor for a database. We chose it over SQLite du
 making it better at creating bigger apps. 
 
 ## Security audit
+
 See `./security_audit.md`
 
 ## Conclusion
 
+In the end, we chose to work with fastAPI,SQLAlchemy and react alongside capacitor.
+We chose to do so because this is the most adapted stack for our team, while being resilient and easy to use.

@@ -74,6 +74,6 @@ tech-tester-arena
 
 After testing multiple technologies we decided to settle on these:
  - fastAPI for the backend.
- - SQLAlchemy alongside mariaDB for the orm.
+ - SQLAlchemy for the orm.
  - React for the frontend of the web application.
  - React with capacitor for the frontend of the mobile application. 
