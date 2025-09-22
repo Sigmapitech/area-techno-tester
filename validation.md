@@ -63,6 +63,7 @@ than MangoDB, a very important factor for a database. We chose it over SQLite du
 making it better at creating bigger apps. 
 
 ## Security audit
+See `./security_audit.md`
 
 ## Conclusion
 
