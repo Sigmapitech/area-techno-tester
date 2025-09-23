@@ -4,140 +4,151 @@ This audit reviews a stack including **React/React Flow (UI), FastAPI (Python ba
 We examine common web risks (XSS, CSRF, SQL injection, etc.) and recommend mitigations for each layer.
 
 ## Frontend (React & React Flow)
-1. **Safe JSX Rendering**  
-   React’s JSX rendering engine automatically escapes content, meaning script tags and injected code are rendered as harmless strings. This makes ordinary JSX safe from script injection.  
+1. **Safe Rendering by Default**  
+   React escapes content in JSX, rendering potentially malicious input (e.g., `<script>`) as harmless text.
+   This prevents most injection attacks.  
    [source](https://www.stackhawk.com/blog/react-xss-guide-examples-and-prevention/#:~:text=React%20outputs%20elements%20and%20data,render%20it%20as%20a%20string)
 
-2. **Avoid Dangerous APIs**  
-   Using `dangerouslySetInnerHTML` or direct DOM manipulation reintroduces XSS risk. Never use these with untrusted data. If raw HTML must be inserted, sanitize or escape it first.  
+2. **Handling Raw HTML Safely**  
+   Avoid `dangerouslySetInnerHTML` or manual DOM APIs with untrusted input.
+   If raw HTML is required, sanitize or escape it before rendering.  
    [source](https://www.stackhawk.com/blog/react-xss-guide-examples-and-prevention/#:~:text=All%20HTML%20elements%20contained%20by,docs%20also%20mention%20this%20here)
 
-3. **Content-Security-Policy (CSP)**  
-   Enforce strong CSP headers to block inline scripts, unsafe eval, and unauthorized external script sources. This reduces the blast radius of potential XSS exploits.  
+3. **Content Security Policy (CSP)**  
+   Apply a strict CSP to block inline scripts, unsafe eval, and unauthorized external resources, limiting the impact of potential XSS.  
    [source](https://dev.to/ceblakely/web-security-for-developers-cross-site-scripting-xss-1hh9#:~:text=,CSP)
 
-4. **Dependency Hygiene**  
-   Regularly audit dependencies with tools like `npm audit`, lock versions, and update libraries promptly. Avoid using eval-like functions that can open execution vectors for attackers.
-
-5. **React Flow Usage**  
-   React Flow (graph/flow UI library) currently has no reported vulnerabilities.
-   However, treat it like any other UI library: never pass untrusted, user-controlled text directly into its renderers without proper sanitization. Keep React Flow and all npm packages up to date to minimize supply-chain attack risks.  
-  [source](https://security.snyk.io/package/npm/react-flow-renderer#:~:text=Direct%20Vulnerabilities)
+4. **Dependency & Supply Chain Security**  
+   Keep React, React Flow, and all npm packages updated.
+   Audit dependencies (`npm audit`) and avoid dangerous functions like `eval`.
+   Even libraries without known issues (e.g., React Flow) should be treated as potentially risky if given untrusted input.  
+   [source](https://security.snyk.io/package/npm/react-flow-renderer#:~:text=Direct%20Vulnerabilities)
 
 ## Authentication & OAuth
-1. **State Parameter for CSRF Protection**  
-   Always include and validate a unique, random `state` parameter in OAuth redirects. This prevents CSRF attacks by ensuring the request and response belong to the same session.  
+1. **CSRF Protection with State**  
+   Always include and validate a random `state` parameter in OAuth redirects.
+   This ensures the response matches the initiating request and prevents CSRF.  
    [source](https://auth0.com/docs/secure/attack-protection/state-parameters#:~:text=CSRF%20attacks)
 
-2. **PKCE for Mobile & Native Clients**  
-   For mobile or native apps (e.g., Capacitor), use PKCE (Proof Key for Code Exchange) during the OAuth flow. This ensures authorization codes cannot be intercepted or reused by malicious apps.  
+2. **PKCE for Mobile & Native Apps**  
+   Use PKCE (Proof Key for Code Exchange) in mobile/native OAuth flows to protect authorization codes from interception.  
    [source](https://capacitorjs.com/docs/guides/security#:~:text=This%20is%20especially%20important%20for,for%20oAuth2%20in%20Capacitor%20apps)
 
 3. **Redirect URI Validation**  
-   Strictly validate redirect URIs—no wildcards. This prevents open redirect vulnerabilities and stops tokens from leaking to untrusted endpoints.
+   Only allow exact, trusted redirect URIs—no wildcards—to prevent open redirects and token leakage.
 
-4. **Cookie Security Settings**  
-   For web sessions, secure cookies with the `HttpOnly`, `Secure`, and `SameSite=Lax` (or stricter) attributes. This blocks access from JavaScript and reduces CSRF/hijacking risk.  
-   [source](https://www.stackhawk.com/blog/react-csrf-protection-guide-examples-and-how-to-enable-it/#:~:text=match%20at%20L1926%20The%20sameSite%3A,depth)
+4. **Session & Token Storage Security**
+   * **Cookies (Web):** Set `HttpOnly`, `Secure`, and `SameSite=Lax` (or stricter) to reduce CSRF and hijacking risk.  
+     [source](https://www.stackhawk.com/blog/react-csrf-protection-guide-examples-and-how-to-enable-it/#:~:text=match%20at%20L1926%20The%20sameSite%3A,depth)
+   * **Mobile/Native:** Store tokens only in secure OS-provided storage (Keychain/Keystore), never in browser-accessible storage.  
+     [source](https://developers.google.com/identity/protocols/oauth2/resources/best-practices#:~:text=Handle%20user%20tokens%20securely)
 
-5. **Secure Token Storage**  
-   Never store tokens in localStorage or sessionStorage (exposed to JavaScript). Instead, use secure OS-provided storage mechanisms such as iOS Keychain or Android Keystore.  
-   [source](https://developers.google.com/identity/protocols/oauth2/resources/best-practices#:~:text=Handle%20user%20tokens%20securely)
-
-6. **Token Scope & Lifespan Management**  
-   Minimize risk by keeping tokens short-lived and narrowly scoped. Use rotating refresh tokens to further reduce exposure if a token is compromised.
+5. **Token Management**  
+   Minimize risk by issuing short-lived, narrowly scoped access tokens and rotating refresh tokens to limit exposure if compromised.
 
 ## API Backend (FastAPI & Secure API Design)
-1. **HTTPS Enforcement**  
-   Always serve the API over HTTPS (e.g., configure Uvicorn with TLS certs or run behind Nginx with SSL). This prevents man-in-the-middle attacks and ensures encrypted communication.
+1. **Transport Security (HTTPS/TLS)**  
+   Serve all endpoints over HTTPS (e.g., Uvicorn with TLS or behind Nginx) to prevent man-in-the-middle attacks.  
    [source](https://escape.tech/blog/how-to-secure-fastapi-api/#:~:text=First%20step%3A%20Use%20HTTPS%20for,secure%20communication)
 
-2. **Input Validation & Sanitization**  
-   Use Pydantic models for all request payloads to enforce type checks, field constraints, and validation rules. This blocks malformed or malicious input and helps prevent injection attacks. Never interpolate raw user data into SQL queries, HTML, or command execution.
+2. **Input Validation**  
+   Define request schemas with Pydantic to enforce types, lengths, and formats.
+   This rejects malformed data and prevents injection.
+   Never interpolate raw user input into SQL, HTML, or commands.  
    [source](https://escape.tech/blog/how-to-secure-fastapi-api/#:~:text=Validate%20and%20sanitize%20user%20input)
 
-3. **CORS Policy Control**  
-   Restrict CORS to trusted frontend origins and required HTTP methods only. Avoid `Access-Control-Allow-Origin: *` if credentials or sensitive APIs are in use.
+3. **CORS & Access Control**  
+   Restrict CORS to trusted origins and required methods.
+   Avoid `Access-Control-Allow-Origin: *` if credentials are used.
 
-4. **Authentication & Token Verification**  
-   Use FastAPI’s OAuth2/token utilities but always validate tokens server-side—check signatures, expiration times, and scopes. Reject invalid or tampered tokens.
+4. **Authentication & Session Security**  
+   Validate OAuth2/JWT tokens server-side (signature, expiry, scopes).
+  If cookies are issued, set `HttpOnly`, `Secure`, and `SameSite` to prevent CSRF and theft.
 
-5. **Cookie Security**  
-   If cookies are issued, apply `HttpOnly`, `Secure`, and `SameSite` attributes (as in the frontend guidelines) to prevent CSRF and theft.
+5. **Abuse Prevention**  
+   Apply rate limiting or throttling (e.g., per-user/IP) to block brute force, credential stuffing, or denial-of-service attempts.
 
-6. **Rate Limiting & Throttling**  
-   Implement rate-limiting (e.g., per-IP or per-user) to mitigate brute-force attacks, credential stuffing, and DoS attempts.
+6. **Security Headers**  
+   Send headers like HSTS, CSP, X-Content-Type-Options, and X-Frame-Options to reduce attack surface.
 
-7. **Security Headers**  
-   Add protective headers such as CSP, HSTS, X-Content-Type-Options, and X-Frame-Options in API responses to reduce common attack surfaces.
-
-8. **Error Handling Discipline** 
-   Do not expose stack traces or framework details to clients. Return generic error messages while logging technical details internally.
-
-9. **Logging & Auditing**  
-   Record failed authentication attempts, suspicious input patterns, and unusual request behaviors. Use logs for monitoring, auditing, and incident response.
+7. **Error Handling & Logging**  
+   Return generic errors without stack traces.
+   Internally, log failed auth, suspicious input, and unusual traffic for monitoring and incident response.
 
 ## Database & ORM (PostgreSQL + SQLAlchemy)
-1. **Parameterized Queries by Default**  
-   Always use parameterized queries or ORM methods. SQLAlchemy and drivers like psycopg2 automatically escape values, preventing SQL injection. Never concatenate user input into SQL strings.
+1. **Parameterized Queries**  
+   Always use SQLAlchemy’s ORM methods or parameterized queries to separate code from data.
+   Drivers like psycopg2 automatically escape values, preventing SQL injection.
+   Never concatenate user input into SQL strings.  
    [source](https://realpython.com/prevent-python-sql-injection/#:~:text=think%20about%20when%20trying%20to,compose%20a%20query%20with%20parameters)
 
-2. **Safe ORM & Raw SQL Usage**  
-   Within SQLAlchemy, prefer expressions like `filter(Model.foo == user_input)` instead of string interpolation.
-   If raw SQL is unavoidable (e.g., `text()`), bind values with parameters (`:param`) instead of f-strings. Avoid user-controlled table/column names.
+2. **Safe Query Practices**  
+   Prefer ORM expressions (e.g., `filter(Model.foo == user_input)`).
+   If raw SQL (`text()`) is required, bind parameters (`:param`) instead of f-strings.
+   Never allow user-controlled table or column names.  
    [source](https://stackoverflow.com/questions/6501583/sqlalchemy-sql-injection#:~:text=The%20accepted%20answer%20is%20lazy,you%20are%20open%20to%20attack)
 
 3. **Principle of Least Privilege**  
-   Configure a dedicated database role for the application with minimal permissions (e.g., no `SUPERUSER`, `CREATE`, or `ALTER` unless strictly required). Limit access to only the necessary schemas and tables.
+   Use a dedicated DB account with only the permissions required for the app (no `SUPERUSER`, `CREATE`, or `ALTER` unless necessary).
+   Restrict access to relevant schemas/tables only.
 
-4. **Database Network Security**  
-   Run PostgreSQL on an internal network and block public exposure of port `5432`. If remote access is needed, require SSL/TLS and firewall rules to restrict connections to trusted hosts only.
+4. **Network Security**  
+   Run PostgreSQL on a private/internal network and block public access to port `5432`.
+   If external access is required, enforce SSL/TLS and firewall rules to limit connections to trusted hosts.
 
-5. **Advanced Access Controls**  
-   For multi-tenant systems, consider PostgreSQL’s row-level security (RLS) or built-in authentication features to enforce per-user or per-tenant isolation at the database layer.
+5. **Access Control for Multi-Tenancy** 
+   In multi-tenant setups, use PostgreSQL Row-Level Security (RLS) or built-in authentication features to isolate tenants at the database layer.
 
 6. **Maintenance & Backups**  
-   Keep PostgreSQL updated with security patches, and implement regular automated backups to protect against data loss or corruption.
+   Keep PostgreSQL patched and updated.
+   Automate regular, tested backups to prevent data loss or corruption.
 
 ## In-Memory Cache (Redis)
 1. **Authentication & Access Control**  
-   By default, Redis has no authentication and is open to all interfaces. Always configure authentication—use `requirepass` for Redis <6 or ACLs for Redis ≥6. This ensures only authorized clients can connect.
+   Redis has no authentication by default.
+   Configure a password (`requirepass` for <6, ACLs for ≥6) to restrict access to authorized clients only.  
    [source](https://medium.com/@rizqimulkisrc/redis-security-preventing-unauthorized-access-and-data-leakage-46278d4f2bb3#:~:text=No%20Authentication%20by%20Default)
 
-2. **Network Binding & Isolation**  
-   Restrict Redis to trusted networks by binding it to `127.0.0.1` or a private/internal IP in `redis.conf`. Block public exposure of the Redis port (`6379`) with firewall rules.
+2. **Network Isolation**  
+   Bind Redis to `127.0.0.1` or a private/internal IP, and firewall port `6379`.
+   Never expose Redis directly to the public internet.  
    [source](https://redis.io/docs/latest/operate/oss_and_stack/management/security/#:~:text=In%20this%20case%2C%20the%20web,browsers%20accessing%20the%20web%20application)
 
-3. **TLS Encryption for Traffic**  
-   If Redis traffic crosses an untrusted or external network, enable TLS. This prevents attackers from sniffing or tampering with sensitive cache data in transit.
+3. **Transport Encryption**  
+   Enable TLS if Redis traffic must cross untrusted or external networks to protect against sniffing and tampering.
 
-4. **Restrict Dangerous Commands**  
-   Disable or rename risky commands such as `FLUSHALL`, `CONFIG`, or `DEBUG`. Alternatively, enforce ACLs to limit which clients can execute them.
+4. **Command Restrictions**  
+   Disable or rename high-risk commands (e.g., `FLUSHALL`, `CONFIG`, `DEBUG`) or use ACLs to limit their use in production.
 
-5. **Data Sensitivity Awareness**  
-   Treat Redis as a cache or ephemeral store, not a secure database. Do not store plaintext sensitive information (e.g., passwords, credit card numbers). Keep sensitive session or token data accessible only through the backend API layer.
+5. **Data Handling Practices**  
+   Treat Redis as an ephemeral cache, not a secure database.
+   Avoid storing sensitive data in plaintext; restrict session/token data access through the backend only.
 
 ## Mobile App (CapacitorJS)
-1. **Avoid Hardcoded Secrets**  
-   Never embed API keys or secrets in the app binary or JavaScript. Mobile apps can be reverse-engineered, exposing these values. Instead, delegate sensitive operations to a secure backend.
+1. **No Hardcoded Secrets**  
+   Never embed API keys or secrets in the app—binaries and JavaScript can be reverse-engineered.
+   Delegate sensitive operations to the backend.  
    [source](https://capacitorjs.com/docs/guides/security#:~:text=Avoid%20Embedding%20Secrets%20in%20Code)
 
 2. **Secure Token Storage**  
-   Store authentication tokens only in secure, encrypted storage such as iOS Keychain or Android Keystore (or a secure plugin). Never use plain WebView localStorage or sessionStorage.
+   Store auth tokens only in OS-provided secure storage (iOS Keychain, Android Keystore, or encrypted plugins).
+   Avoid WebView `localStorage`/`sessionStorage`.  
    [source](https://developers.google.com/identity/protocols/oauth2/resources/best-practices#:~:text=Handle%20user%20tokens%20securely)
 
-3. **Safe OAuth & Deep Linking**  
-   For mobile logins, use PKCE to protect OAuth flows and prefer platform-provided “universal links” (iOS/Android) over custom URL schemes. This prevents deep-link hijacking.
+3. **OAuth & Deep Link Security**  
+   Use PKCE for OAuth flows.
+   Prefer universal links (iOS/Android) over custom URL schemes to prevent deep-link hijacking.  
    [source](https://capacitorjs.com/docs/guides/security#:~:text=This%20is%20especially%20important%20for,for%20oAuth2%20in%20Capacitor%20apps)
 
 4. **Transport Security**  
-   Require HTTPS for all network requests. Consider certificate pinning to reduce the risk of man-in-the-middle (MITM) attacks.
+   Enforce HTTPS for all requests.
+   Consider certificate pinning to block MITM attacks.
 
-5. **WebView & Content Security**  
-   Apply a strict Content-Security-Policy (CSP) to any remote content. Disable `allowingUnsafeMixedContent` to prevent insecure resource loading inside the app.
+5. **WebView Security**  
+   Apply a strict CSP for any remote content and disable `allowingUnsafeMixedContent` to prevent insecure resource loading.
 
-6. **App Hardening & Build Security**  
-   For Android builds, disable debugging and enable code obfuscation/minification (e.g., ProGuard/R8). Always validate inputs from plugins, and keep Capacitor plus all plugins up to date. Remove unused plugins to minimize attack surface.
+6. **App Hardening**  
+   Disable debugging, enable obfuscation/minification (e.g., ProGuard/R8), validate plugin input, keep Capacitor/plugins updated, and remove unused plugins to reduce attack surface.
 
 # Summary of Critical Risks
 Across all layers, **the highest-risk issues** are those that allow code or query injection and unauthorized access.
