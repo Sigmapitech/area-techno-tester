@@ -1,5 +1,4 @@
 import logging
-import os
 import sys
 from contextlib import asynccontextmanager
 from http import HTTPStatus
