@@ -3,10 +3,13 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 
 import "./auth.scss";
+import { useAuth } from "@/auth";
 
 const API_BASE_URL = "http://127.0.0.1:8000";
 
 export default function LoginPage() {
+  const { login } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,9 +34,8 @@ export default function LoginPage() {
 
       const data = await response.json();
 
-      localStorage.setItem("token", data.token);
-
-      navigate("/dashboard");
+            login(data.token);
+      navigate("/");
     } catch (err) {
       setError(err?.message);
     }
