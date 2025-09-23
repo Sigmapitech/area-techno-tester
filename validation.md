@@ -38,7 +38,7 @@ the frontend for our web application.
 For our backtend technologies, we will expand more on [fastAPI](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/back-fastapi), [Express](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/back-express) and [Flask](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/back-flask).
 
 When it comes down to the backend, we let ourselves the choice between Express, Flask and FastAPI. Off the
-three we decided to go with FastAPI due to speed, the fact that it’s adapted to most API and our good experience with it.
+three we decided to go with FastAPI due to iteration speed, and its high versatility in constructing API. We also already build multiple projects with it, including the survivor jeb project.
 It is also more structured than Express and less limited than Flask.
 
 
