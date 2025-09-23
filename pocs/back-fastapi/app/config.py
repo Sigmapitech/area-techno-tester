@@ -16,6 +16,10 @@ class Settings(BaseSettings):
     )
 
     jwt_secret: str
+    discord_client_id: int
+    discord_client_secret: str
+    discord_redirect_uri: str
+    discord_api_base: str
 
     def configure_logging(self):
         logging.basicConfig(level=self.log_level.upper())

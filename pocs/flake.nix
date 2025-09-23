@@ -26,7 +26,6 @@
             "biome"
             "black"
             "trim-trailing-whitespace"
-            "alejandra"
             "deadnix"
           ] (_: {enable = true;});
         };
@@ -64,6 +63,7 @@
           inherit (self.checks.${pkgs.system}.pre-commit-check) shellHook;
 
           packages = with pkgs; [
+            nodejs
             py-env
             black
             isort

@@ -28,7 +28,7 @@ async def hello_world():
 
 def register_all(app: FastAPI):
     app.include_router(router)
-    for module in ("auth",):
+    for module in ("auth", "discord"):
         mod = importlib.import_module(f".{module}", package="app.endpoints")
         app.include_router(mod.router, prefix=f"/api/{module}", tags=[f"{module}"])
 
