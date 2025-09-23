@@ -151,12 +151,13 @@ We examine common web risks (XSS, CSRF, SQL injection, etc.) and recommend mitig
    Disable debugging, enable obfuscation/minification (e.g., ProGuard/R8), validate plugin input, keep Capacitor/plugins updated, and remove unused plugins to reduce attack surface.
 
 # Summary of Critical Risks
-Across all layers, **the highest-risk issues** are those that allow code or query injection and unauthorized access.
-For example, XSS in React could expose user tokens;
-SQL injection in the API could corrupt or expose your database;
-CSRF in auth flows could hijack user actions;
-leaving Redis open could let attackers flush or steal cached data;
-and storing OAuth tokens insecurely on the client could lead to account compromise.
+Across all layers, **the highest-risk issues** are those that allow code or query injection and unauthorized access.  
+For example:
+- XSS in React could expose user tokens.
+- SQL injection in the API could corrupt or expose your database.
+- CSRF in auth flows could hijack user actions.
+- Leaving Redis open could let attackers flush or steal cached data.
+- Storing OAuth tokens insecurely on the client could lead to account compromise.
 
 Each of the above sections identifies mitigations - in summary:
 - **Sanitize and Validate Everything:** Use built-in frameworks (React auto-escaping, FastAPI/Pydantic validation) and parameterized queries.  
@@ -169,6 +170,3 @@ Each of the above sections identifies mitigations - in summary:
 ---
 
 Implementing these recommendations will mitigate CSRF, XSS, SQLi, and related OWASP Top 10 risks, yielding a robust security posture for the given stack.
-
-**Sources:** Authoritative docs and security guides were used, including FastAPI and Capacitor security guides, Redis documentation, and examples of CSRF/XSS/SQL injection prevention.
-Each cited source supports the specific mitigation advice above.
