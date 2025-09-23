@@ -35,7 +35,7 @@ We examine common web risks (XSS, CSRF, SQL injection, etc.) and recommend mitig
    [source](https://capacitorjs.com/docs/guides/security#:~:text=This%20is%20especially%20important%20for,for%20oAuth2%20in%20Capacitor%20apps)
 
 3. **Redirect URI Validation**  
-   Only allow exact, trusted redirect URIs—no wildcards—to prevent open redirects and token leakage.
+   Only allow exact, trusted redirect URIs (no wildcards) to prevent open redirects and token leakage.
 
 4. **Session & Token Storage Security**
    * **Cookies (Web):** Set `HttpOnly`, `Secure`, and `SameSite=Lax` (or stricter) to reduce CSRF and hijacking risk.  
@@ -96,7 +96,7 @@ We examine common web risks (XSS, CSRF, SQL injection, etc.) and recommend mitig
    Run PostgreSQL on a private/internal network and block public access to port `5432`.
    If external access is required, enforce SSL/TLS and firewall rules to limit connections to trusted hosts.
 
-5. **Access Control for Multi-Tenancy** 
+5. **Access Control for Multi-Tenancy**  
    In multi-tenant setups, use PostgreSQL Row-Level Security (RLS) or built-in authentication features to isolate tenants at the database layer.
 
 6. **Maintenance & Backups**  
