@@ -18,6 +18,7 @@ function getPopupDimension() {
 export default function HomePage() {
   const { token, logout } = useAuth();
   const [connected, setConnected] = useState(false);
+    const [guilds, setGuilds] = useState<any>(null);
 
   const connectDiscord = () => {
     const [width, height, left, top] = getPopupDimension();
@@ -29,7 +30,7 @@ export default function HomePage() {
     );
 
     window.addEventListener("message", (event) => {
-      if (event.origin !== API_BASE_URL) return;
+            console.log(event.data?.type)
       if (event.data?.type === "DISCORD_CONNECTED") {
         setConnected(true);
         console.log("Discord linked!", event.data.payload);
@@ -38,14 +39,37 @@ export default function HomePage() {
     });
   };
 
+    const fetchGuilds = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/discord/list_guilds`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.detail || "Failed to fetch guilds");
+        }
+
+        const data = await res.json();
+        setGuilds(data);
+      } catch (err: any) {
+        console.error(err.message);
+      }
+    };
+
+
   return (
     <StrictMode>
       <div className="home-page">
-        <Link to="/graph">Graph page</Link>
-        <button onClick={logout}>Logout</button>
-        {!connected && (
-          <button onClick={connectDiscord}>Connect with Discord</button>
-        )}
+        <div className="buttons">
+          <Link to="/graph">Graph page</Link>
+          <button onClick={logout}>Logout</button>
+          {!connected
+            && (<button onClick={connectDiscord}>Connect with Discord</button>)
+            || (<button onClick={fetchGuilds}>List Guilds</button>
+          )}
+        </div>
+        {guilds && <pre>{JSON.stringify(guilds, null, 2)}</pre>}
       </div>
     </StrictMode>
   );

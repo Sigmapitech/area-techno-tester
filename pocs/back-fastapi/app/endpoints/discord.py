@@ -91,7 +91,7 @@ async def discord_auth(
               type: 'DISCORD_CONNECTED',
               payload: {{ userId: {user.id} }}
             }},
-            window.origin
+            "*"
           );
           window.close();
         </script>
