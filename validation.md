@@ -46,8 +46,8 @@ It is also more structured than Express and less limited than Flask.
 
 For our backtend technologies, we will expand more on [React + capacitor](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/front-react), [Flutter](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/mobile-flutter) and [Kotlin](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/mobile-kotlin).
 
-In the end our choice went to React combined with capacitor. While it doesn’t have the power of Flutter,
-nor the official label of Kotlin; our superior knowledge of it is a decent point in its favor.
+In the end our choice went to React combined with capacitor. While it doesn’t have the first class support of Flutter,
+nor that of Kotlin; our superior knowledge of it is a decent point in its favor.
 On top of that, the fact that it is React means that it will have a good synergy with our web frontend and
 will potentially allow us to share some components. Additionally, the ease of installation is a very good point
 for the different environment our team possesses.
@@ -55,11 +55,11 @@ for the different environment our team possesses.
 
 ## Databases
 
-For our backtend technologies, we will expand more on [MangoDB](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/db-mongo), [SQLAlchemy](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/db-sqlalchemy) and [SQLite](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/db-sqlite).
+For our backtend technologies, we will expand more on [MongoDB](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/db-mongo), [SQLAlchemy](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/db-sqlalchemy) and [SQLite](https://github.com/Sigmapitech/area-techno-tester/tree/main/considerations/db-sqlite).
 
 For our database, we decided to lean towards SQLAlchemy. To begin with, it offers a better resilience
-than MangoDB, a very important factor for a database. We chose it over SQLite due to its scalability,
-making it better at creating bigger apps. 
+than MongoDB, a very important factor for a database. We chose it over SQLite due to its scalability,
+making it better at creating bigger apps.
 
 ## Security audit
 
